@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest"
+    "test": "jest --passWithNoTests",
+    "test:staged": "jest --passWithNoTests"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.16",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "eslint": "^7.17.0",
     "eslint-config-airbnb-typescript": "^12.0.0",
     "eslint-plugin-import": "^2.22.1",
     "git-commit-msg-linter": "^3.0.0",
