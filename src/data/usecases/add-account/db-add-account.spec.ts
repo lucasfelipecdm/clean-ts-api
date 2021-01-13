@@ -92,7 +92,7 @@ describe('DbAddAccount Usecase', async () => {
     });
   });
 
-  test('Should throw if Encrypter throws', async () => {
+  test('Should throw if AddAccountRepository throws', async () => {
     const { sut, addAccountRepositoryStub } = makeSut();
     jest
       .spyOn(addAccountRepositoryStub, 'add')
@@ -106,5 +106,21 @@ describe('DbAddAccount Usecase', async () => {
     };
     const promise = sut.add(accountData);
     await expect(promise).rejects.toThrow();
+  });
+
+  test('Should return an Account on success', async () => {
+    const { sut } = makeSut();
+    const accountData = {
+      name: 'valid_name',
+      email: 'valid_email@email.com',
+      password: 'valid_password',
+    };
+    const account = await sut.add(accountData);
+    expect(account).toEqual({
+      id: 'valid_id',
+      name: 'valid_name',
+      email: 'valid_email@email.com',
+      password: 'hashed_value',
+    });
   });
 });
