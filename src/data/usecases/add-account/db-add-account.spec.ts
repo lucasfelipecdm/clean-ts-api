@@ -47,8 +47,8 @@ const makeSut = (): SutTypes => {
   };
 };
 
-describe('DbAddAccount Usecase', async () => {
-  test('Should call Encrypter with correct password', () => {
+describe('DbAddAccount Usecase', () => {
+  test('Should call Encrypter with correct password', async () => {
     const { sut, encrypterStub } = makeSut();
     const encryptSpy = jest.spyOn(encrypterStub, 'encrypt');
     const accountData = {
